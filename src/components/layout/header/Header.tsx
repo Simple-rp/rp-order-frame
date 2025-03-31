@@ -1,45 +1,23 @@
-import Cart from "./Cart";
-
 const Header = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="flex-1">GB Foundry</div>
-      <div className="flex-none">
-        <Cart />
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+    <nav className="bg-white dark:bg-gray-800 antialiased">
+      <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <div className="shrink-0">
+              <a href="#" title="" className="">
+                <img
+                  className="block w-auto h-12"
+                  src="https://media.discordapp.net/attachments/1226504527163949066/1236494354516934717/Logo01.png?ex=67ebee5b&is=67ea9cdb&hm=446496b368d3f135b8cbc8fdee8d51979cb9fd7c69ae756b4f4d3b32a19be99a&=&format=webp&quality=lossless"
+                  alt=""
+                />
+              </a>
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
         </div>
       </div>
-    </div>
-  );
-};
+    </nav>
+  )
+}
 
-export default Header;
+export default Header
