@@ -1,5 +1,3 @@
-import React from "react";
-
 const Cart = () => {
   return (
     <div className="dropdown dropdown-end me-2">

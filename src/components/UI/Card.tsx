@@ -8,7 +8,11 @@ const Card = ({ title, description, price }: any) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+        <span className="badge badge-xs badge-warning">Most Popular</span>
+        <div className="flex justify-between">
+          <h2 className="text-3xl font-bold">{title}</h2>
+          <span className="text-xl">{price}</span>
+        </div>
         <p className="min-h-16">{description}</p>
         <div className="card-actions justify-end">
           <div className="join">

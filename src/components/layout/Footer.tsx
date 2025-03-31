@@ -1,4 +1,3 @@
-import React from "react";
 import DebugStats from "../debug/DebugStats";
 
 const Footer = () => {
