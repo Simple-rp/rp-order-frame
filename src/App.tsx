@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/header/Header";
-import ProductPage from "./pages/Products/ProductPage";
+// import ProductPage from "./pages/Products/ProductPage";
 
 function App() {
   const [searchParams] = useSearchParams();
