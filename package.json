@@ -1,5 +1,6 @@
 {
   "name": "rp-order-frame",
+  "homepage": "https://simple-rp.github.io/rp-order-frame",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview --port 8080"
+    "preview": "vite preview --port 8080",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",
