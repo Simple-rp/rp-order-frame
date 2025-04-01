@@ -21,7 +21,9 @@ const Card = ({ title, img, price, description, onAdd }: any) => {
             value={qtite}
             onChange={(e) => setQtite(parseInt(e.target.value))}
           />
-          <button className="card-btn">Ajouter au panier</button>
+          <button className="card-btn" onClick={() => onAdd(qtite)}>
+            Ajouter au panier
+          </button>
         </div>
       </div>
     </div>

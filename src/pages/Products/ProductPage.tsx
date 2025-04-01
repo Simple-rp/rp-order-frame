@@ -44,7 +44,7 @@ const ProductPage = () => {
   return (
     <div className="product-container">
       {products.map((p) => (
-        <Card {...p} />
+        <Card {...p} onAdd={(e: number) => console.log(e)} />
       ))}
     </div>
   )
