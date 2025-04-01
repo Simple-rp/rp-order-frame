@@ -5,7 +5,9 @@ const Card = ({ title, img, price, onAdd }: any) => {
   const [qtite, setQtite] = useState(0)
   return (
     <div className="card">
-      <img src={img} width="33%" alt="Card Image" />
+      <div className="card-img">
+        <img src={img} alt={title} />
+      </div>
       <div className="card-content">
         <div className="card-header">
           <div className="card-title">{title}</div>
