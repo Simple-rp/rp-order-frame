@@ -1,1 +1,29 @@
-@import "tailwindcss";
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root,
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.637);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.header {
+  padding: 20px 20px 7px 20px;
+  border-bottom: 1px solid rgba(92, 92, 92, 0.192);
+}
