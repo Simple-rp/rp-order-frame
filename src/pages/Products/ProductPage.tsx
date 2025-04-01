@@ -1,6 +1,7 @@
 import Card from '../../components/UI/Card/Card'
 import './products.css'
 import placeholderImage from '../../assets/placeholder.webp'
+import CartCard from '../../components/Cart/CartCard'
 
 const products = [
   {
@@ -46,6 +47,7 @@ const ProductPage = () => {
       {products.map((p) => (
         <Card {...p} onAdd={(e: number) => console.log(e)} />
       ))}
+      {true && <CartCard title="Panier" items={['a', 'b', 'c']} />}
     </div>
   )
 }

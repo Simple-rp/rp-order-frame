@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Card.css'
 
-const Card = ({ title, img, price, description, onAdd }: any) => {
+const Card = ({ title, img, price, onAdd }: any) => {
   const [qtite, setQtite] = useState(0)
   return (
     <div className="card">
@@ -11,7 +11,6 @@ const Card = ({ title, img, price, description, onAdd }: any) => {
           <div className="card-title">{title}</div>
           <div className="card-price">{price}</div>
         </div>
-        <div className="card-description">{description}</div>
         <div className="card-actions">
           <input
             className="card-input"
