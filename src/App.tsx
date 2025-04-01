@@ -10,14 +10,13 @@ function App() {
   const [searchParams] = useSearchParams()
 
   const code = searchParams.get('code') // "GBF"
-  const isDebug = searchParams.get('debugMode') // "true"
 
   return (
     <>
       <Header code={code} />
       <main>
         <ProductPage />
-        <Debug enabled={isDebug} />
+        <Debug />
       </main>
       <Footer />
     </>

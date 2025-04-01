@@ -59,6 +59,14 @@ const ProductPage = () => {
     } else setCart([...cart, item])
   }
 
+  const handleRemove = (itemName: any) => {
+    console.log('remove', itemName)
+    const itemFind = cart.find((e) => e.item === itemName)
+    if (itemFind) {
+      setCart(cart.filter((e) => e.item !== itemName))
+    }
+  }
+
   products
   return (
     <div className="product-container">
@@ -75,7 +83,13 @@ const ProductPage = () => {
           }
         />
       ))}
-      {true && <CartCard title="Panier" items={cart} />}
+      {true && (
+        <CartCard
+          items={cart}
+          handleSubmit={() => console.log('submit')}
+          handleRemove={(item: any) => handleRemove(item)}
+        />
+      )}
     </div>
   )
 }

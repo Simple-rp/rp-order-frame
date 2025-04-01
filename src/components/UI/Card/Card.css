@@ -62,12 +62,24 @@
 }
 .card-input {
   border: unset;
+  background: unset;
+  border-bottom: 1px solid #ffffff66;
   text-align: center;
+}
+.card-input:focus-visible {
+  border: unset;
+}
+.card-input:focus {
+  border: unset;
 }
 
 .card-btn {
+  background-color: #c16000;
+  padding: 5px;
+  border: unset;
   cursor: pointer;
   transition: background 0.3s;
+  border-radius: 25px;
 }
 
 .card-btn:hover {

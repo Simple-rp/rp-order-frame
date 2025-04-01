@@ -1,8 +1,9 @@
+import { formatSplit } from '../../helper/numbers'
 import '../UI/Card/Card.css'
 import './cart.css'
 import CartItem from './CartItem'
 
-const CartCard = ({ items, handleSubmit }: any) => {
+const CartCard = ({ items, handleSubmit, handleRemove }: any) => {
   const total = items.reduce((a: number, i: any) => a + i.qte * i.price, 0)
   const countItem = items.reduce((a: number, i: any) => a + i.qte, 0)
   return (
@@ -13,12 +14,12 @@ const CartCard = ({ items, handleSubmit }: any) => {
         </div>
         <div className="cart-item-container">
           {items.map((p: any, index: number) => (
-            <CartItem key={index} item={p} />
+            <CartItem key={index} item={p} handleRemove={() => handleRemove(p.item)} />
           ))}
         </div>
         <div className="card-actions">
           <div className="card-total">
-            Total: <strong>{total} $</strong>
+            Total: <strong>{formatSplit(total)} $</strong>
           </div>
           <button className="card-btn" onClick={() => handleSubmit()}>
             Commander
