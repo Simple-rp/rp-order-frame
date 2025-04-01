@@ -1,0 +1,28 @@
+.cart-item-container {
+  height: 180px;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-item-1 {
+  display: flex;
+}
+
+.cart-delete {
+  width: 24px;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  font-family: cursive;
+  font-size: 12px;
+  padding-top: 2px;
+}
+.cart-delete:hover {
+  color: brown;
+  cursor: pointer;
+  background: #f3f3f305;
+}

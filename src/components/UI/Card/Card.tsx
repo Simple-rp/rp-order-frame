@@ -11,7 +11,7 @@ const Card = ({ title, img, price, onAdd }: any) => {
       <div className="card-content">
         <div className="card-header">
           <div className="card-title">{title}</div>
-          <div className="card-price">{price}</div>
+          <div className="card-price">{price} $</div>
         </div>
         <div className="card-actions">
           <input

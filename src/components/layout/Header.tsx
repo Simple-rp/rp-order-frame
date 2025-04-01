@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ code }: any) => {
   return (
     <nav className="header">
       <img
@@ -6,6 +6,7 @@ const Header = () => {
         alt="logo gb"
         width={150}
       />
+      <div className="header-side">{code}</div>
     </nav>
   )
 }
