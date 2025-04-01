@@ -12,7 +12,8 @@
     "preview": "vite preview --port 8080",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "version-bump": "standard-version --skip.commit --skip.tag"
+    "version-bump": "standard-version --skip.commit --skip.tag",
+    "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.17",
