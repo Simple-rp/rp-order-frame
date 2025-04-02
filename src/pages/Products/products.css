@@ -8,3 +8,9 @@
   padding-inline: 15px;
   padding-top: 15px;
 }
+
+.message-error {
+  height: 100%;
+  align-content: center;
+  justify-self: center;
+}

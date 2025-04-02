@@ -15,7 +15,7 @@ interface CartItem {
 const ProductPage = ({ code }: any) => {
   const [cart, setCart] = useState<CartItem[]>([])
 
-  const { data: products, isLoading } = useGetProductsQuery(code)
+  const { data: products, error, isLoading } = useGetProductsQuery(code)
 
   const handleCartAdd = (item: any) => {
     if (item.qte <= 0) return
@@ -38,6 +38,8 @@ const ProductPage = ({ code }: any) => {
   }
 
   if (isLoading) return <Loader />
+  if (error)
+    return <div className="message-error">Hmmm... Produits introuvable. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter notre support pour obtenir de l'aide.</div>
 
   return (
     <div className="product-container">
