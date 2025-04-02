@@ -9,13 +9,13 @@ import Debug from './components/Debug/Debug'
 function App() {
   const [searchParams] = useSearchParams()
 
-  const code = searchParams.get('code') // "GBF"
+  const code = searchParams.get('code')
 
   return (
     <>
       <Header code={code} />
       <main>
-        <ProductPage />
+        <ProductPage code={code} />
         <Debug />
       </main>
       <Footer />

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Card.css'
 
 const Card = ({ title, img, price, onAdd }: any) => {
-  const [qtite, setQtite] = useState(0)
+  const [qtite, setQtite] = useState<number>()
   return (
     <div className="card">
       <div className="card-img">
@@ -17,6 +17,7 @@ const Card = ({ title, img, price, onAdd }: any) => {
           <input
             className="card-input"
             type="number"
+            placeholder='Quantité'
             name="Quantité"
             id="qte"
             value={qtite}

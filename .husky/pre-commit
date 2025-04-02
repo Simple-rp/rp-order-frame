@@ -1,2 +1,1 @@
-npm test
-npm run version-bump
+npm run predeploy && npm run version-bump
