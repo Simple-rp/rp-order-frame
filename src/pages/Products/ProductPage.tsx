@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { sendFromWebhook } from '../../service/plateforms/discord'
 import { useGetProductsQuery } from '../../service/products'
 import Loader from '../../components/UI/Loader/Loader'
+import { getOrderMessage } from '../../helper/builder/orderMessage'
+import { filterByClient } from '../../helper/transformers/products'
 
 interface CartItem {
   item: string
@@ -12,7 +14,7 @@ interface CartItem {
   price: number
 }
 
-const ProductPage = ({ code }: any) => {
+const ProductPage = ({ code, client }: any) => {
   const [cart, setCart] = useState<CartItem[]>([])
 
   const { data: products, error, isLoading } = useGetProductsQuery(code)
@@ -34,16 +36,22 @@ const ProductPage = ({ code }: any) => {
   }
 
   const handleSubmit = () => {
-    sendFromWebhook('test message from tablette\n- Another Test\n- Hello')
+    const msgOrder = getOrderMessage(cart, client)
+    sendFromWebhook(msgOrder, code)
   }
 
   if (isLoading) return <Loader />
   if (error)
-    return <div className="message-error">Hmmm... Produits introuvable. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter notre support pour obtenir de l'aide.</div>
+    return (
+      <div className="message-error">
+        Hmmm... Produits introuvable. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter notre support pour
+        obtenir de l'aide.
+      </div>
+    )
 
   return (
     <div className="product-container">
-      {products?.map((p: any, i: number) => (
+      {filterByClient(products, client)?.map((p: any, i: number) => (
         <Card
           key={i}
           {...p}

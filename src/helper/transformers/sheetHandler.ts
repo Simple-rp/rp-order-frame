@@ -1,6 +1,5 @@
-export const transformProductResponse = (data: any[]) => {
+export const transformSheetResponse = (data: any[]) => {
   if (data?.length === 0) return []
-  console.log(data)
   const header = data[0]
   let list = []
   for (let i = 1; i < data.length; i++) {
@@ -12,6 +11,5 @@ export const transformProductResponse = (data: any[]) => {
     }
     list.push(element)
   }
-  console.log(list)
   return list
 }

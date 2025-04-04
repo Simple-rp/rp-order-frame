@@ -1,7 +1,9 @@
 const webhookURL =
   'https://discord.com/api/webhooks/1355617311708418149/qgQQUv4viIbq3UKV4Hvm_cf5JuBWGLdWRQCJIqmgMCsZgiwkxowLD6c1GOd_JRsFa6-Z'
 
-export const sendFromWebhook = (msg: string) => {
+export const sendFromWebhook = (msg: string, code: any) => {
+  code // prevent build error
+  
   const message = {
     content: msg,
     username: 'RPad',

@@ -10,12 +10,13 @@ function App() {
   const [searchParams] = useSearchParams()
 
   const code = searchParams.get('code')
+  const client = searchParams.get('client')
 
   return (
     <>
-      <Header code={code} />
+      <Header code={client} />
       <main>
-        <ProductPage code={code} />
+        <ProductPage code={code} client={client} />
         <Debug />
       </main>
       <Footer />
