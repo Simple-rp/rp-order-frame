@@ -2,14 +2,13 @@ import { formatSplit } from '../numbers'
 
 const lineSepparator = '\n'
 
-const pdcID = '1189995573877682216-'
+const pdcID = '1189995573877682216'
 
-export const getOrderMessage = (items: any, client: string) => {
+export const getOrderMessage = (items: any, client: any) => {
   console.log(items, client)
-  let message =
-    'Hello <@&' + pdcID + '>' + lineSepparator + "Nouvelle commande" + lineSepparator + lineSepparator
+  let message = 'Hello <@&' + pdcID + '>' + lineSepparator + 'Nouvelle commande' + lineSepparator + lineSepparator
 
-  message += '**Client: **' + client + lineSepparator
+  message += '**Client: **' + client?.name + lineSepparator
 
   message += '**Details de la Commande**' + lineSepparator
   for (let index = 0; index < items.length; index++) {
