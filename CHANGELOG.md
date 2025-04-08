@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.0 (2025-04-08)
+
+- Add delivery details: contact and time
+- Double send message to client channel + worker channel
+
 ### 0.0.10 (2025-04-04)
 
 - price promotion displayed
