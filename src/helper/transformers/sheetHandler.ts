@@ -8,7 +8,8 @@ export const transformSheetResponse = (data: any[]) => {
     for (let j = 0; j < header.length; j++) {
       const key = header[j]
       let value = row[j]
-      if (value.toUpperCase() === 'TRUE' || value.toUpperCase() === 'FALSE') value = value.toUpperCase() === 'TRUE'
+      if (value && (value.toUpperCase() === 'TRUE' || value.toUpperCase() === 'FALSE'))
+        value = value.toUpperCase() === 'TRUE'
       element[key] = value
     }
     list.push(element)

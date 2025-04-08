@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import { sheetApiParams, sheetBaseQuery } from '../helper/basequery/sheeetBaseQuery'
 import { transformSheetResponse } from '../helper/transformers/sheetHandler'
 
-const range = 'clients!A1:G25' // Adjust the range
+const range = '!L1:P100' // Adjust the range
 
 // Define a service using a base URL and expected endpoints
 export const clientApi = createApi({
@@ -10,8 +10,8 @@ export const clientApi = createApi({
   baseQuery: sheetBaseQuery,
   endpoints: (builder) => ({
     getClientDetails: builder.query<any, any>({
-      query: () => `${range}${sheetApiParams}`,
-      transformResponse: (response: any, _, arg) => transformSheetResponse(response.values).find((e) => arg === e.code),
+      query: ({ code }: any) => `${code}${range}${sheetApiParams}`,
+      transformResponse: (response: any, _, arg) => transformSheetResponse(response.values).find((e) => arg?.client === e.code),
     }),
   }),
 })

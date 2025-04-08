@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import { sheetApiParams, sheetBaseQuery } from '../helper/basequery/sheeetBaseQuery'
 import { transformSheetResponse } from '../helper/transformers/sheetHandler'
 
-const productRange = '!A1:H25' // Adjust the range
+const productRange = '!A1:H100' // Adjust the range
 
 // Define a service using a base URL and expected endpoints
 export const productApi = createApi({

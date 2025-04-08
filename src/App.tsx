@@ -13,7 +13,7 @@ function App() {
   const code = searchParams.get('code')
   const client = searchParams.get('client')
 
-  const { data: clientDetails } = useGetClientDetailsQuery(client)
+  const { data: clientDetails } = useGetClientDetailsQuery({ code, client })
   return (
     <>
       <Header code={clientDetails?.name} />

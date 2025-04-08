@@ -35,9 +35,14 @@ const ProductPage = ({ code, client }: any) => {
     }
   }
 
-  const handleSubmit = () => {
-    const msgOrder = getOrderMessage(cart, client)
-    sendFromWebhook(msgOrder, code)
+  const handleSubmit = (delivery: any) => {
+    const msgOrder = getOrderMessage(cart, client, delivery)
+    sendFromWebhook(msgOrder) // send for PDC
+
+    if (client?.webhook) {
+      const clientRecapMessage = getOrderMessage(cart, client, delivery, true)
+      sendFromWebhook(clientRecapMessage, client.webhook) // Send for client just recap
+    }
   }
 
   if (isLoading) return <Loader />
@@ -65,7 +70,11 @@ const ProductPage = ({ code, client }: any) => {
         />
       ))}
       {true && (
-        <CartCard items={cart} handleSubmit={() => handleSubmit()} handleRemove={(item: any) => handleRemove(item)} />
+        <CartCard
+          items={cart}
+          handleSubmit={(delivery: any) => handleSubmit(delivery)}
+          handleRemove={(item: any) => handleRemove(item)}
+        />
       )}
     </div>
   )

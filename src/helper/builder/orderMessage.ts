@@ -1,12 +1,15 @@
 import { formatSplit } from '../numbers'
 
 const lineSepparator = '\n'
+const doubleSepparator = '\n\n'
 
 const pdcID = '1189995573877682216'
 
-export const getOrderMessage = (items: any, client: any) => {
-  console.log(items, client)
-  let message = 'Hello <@&' + pdcID + '>' + lineSepparator + 'Nouvelle commande' + lineSepparator + lineSepparator
+export const getOrderMessage = (items: any, client: any, delivery: any, isRecap: boolean = false) => {
+  const roleToTag = isRecap ? client?.roleId : pdcID
+  let message = `Hello <@&${roleToTag}>${lineSepparator}**${
+    isRecap ? 'Votre commande a bien été reçu' : 'Nouvelle commande'
+  }**${doubleSepparator}`
 
   message += '**Client: **' + client?.name + lineSepparator
 
@@ -21,6 +24,11 @@ export const getOrderMessage = (items: any, client: any) => {
   const total = items.reduce((a: number, i: any) => a + i.qte * i.price, 0)
   const footer = `Total à facturer: **${formatSplit(total)} $**`
 
-  message += footer
+  const deliveryDetails = `Numéro à contacter: **${delivery?.contact}**${lineSepparator}Heure de livraison souhaité: **${delivery?.time}**${lineSepparator}`
+
+  message += footer + doubleSepparator + deliveryDetails
+
+  if (isRecap) message += lineSepparator + '*Si vous avez des choses à ajouter, ouvrez un fil sur ce message*'
+  else message += lineSepparator + '*Ouvrez un fil sur ce message pour traiter la commande!*'
   return message
 }
