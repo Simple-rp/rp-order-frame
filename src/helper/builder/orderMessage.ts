@@ -24,7 +24,7 @@ export const getOrderMessage = (items: any, client: any, delivery: any, isRecap:
   const total = items.reduce((a: number, i: any) => a + i.qte * i.price, 0)
   const footer = `Total à facturer: **${formatSplit(total)} $**`
 
-  const deliveryDetails = `Numéro à contacter: **${delivery?.contact}**${lineSepparator}Heure de livraison souhaité: **${delivery?.time}**${lineSepparator}`
+  const deliveryDetails = `Numéro à contacter: **${delivery?.contact}**${lineSepparator}Heure de livraison souhaité: **${delivery?.time}**${lineSepparator}Commentaire: **${delivery?.comment}**${lineSepparator}`
 
   message += footer + doubleSepparator + deliveryDetails
 
