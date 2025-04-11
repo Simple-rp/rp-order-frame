@@ -73,6 +73,8 @@
   background: unset;
   border-bottom: 1px solid #ffffff66;
   text-align: center;
+  color: white;
+  font-weight: bold;
 }
 .card-input-sm {
   border: unset;
@@ -91,6 +93,7 @@
 .card-btn {
   background-color: #c16000;
   padding: 5px;
+  padding-inline: 10px;
   border: unset;
   cursor: pointer;
   transition: background 0.3s;
@@ -100,4 +103,8 @@
 .card-btn:hover {
   border: unset;
   background: #e3751352;
+}
+button:disabled {
+  background: #4b3b2ec4 !important;
+  cursor: not-allowed !important;
 }

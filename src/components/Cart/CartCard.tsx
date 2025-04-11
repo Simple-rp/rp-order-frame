@@ -4,8 +4,9 @@ import '../UI/Card/Card.css'
 import './cart.css'
 import CartItem from './CartItem'
 
-const initialDelivery = { time: 'Maintenant', contact: '' }
-const CartCard = ({ items, handleSubmit, handleRemove }: any) => {
+const initialDelivery = { time: 'Maintenant', contact: '', comment: '' }
+
+const CartCard = ({ items, handleSubmit, handleRemove, canOrder }: any) => {
   const [delivery, setDelivery] = useState(initialDelivery)
 
   const total = items.reduce((a: number, i: any) => a + i.qte * i.price, 0)
@@ -33,6 +34,9 @@ const CartCard = ({ items, handleSubmit, handleRemove }: any) => {
             name="time"
             value={delivery.time}
             onChange={handleOnChange}
+            onFocus={() => {
+              setDelivery({ ...delivery, time: '' })
+            }}
           />
         </div>
         <div className="card-actions card-contact">
@@ -45,11 +49,21 @@ const CartCard = ({ items, handleSubmit, handleRemove }: any) => {
             onChange={handleOnChange}
           />
         </div>
+        <div className="card-actions card-contact">
+          <div>Commentaire:</div>
+          <input
+            className="card-input-sm"
+            placeholder="..."
+            name="comment"
+            value={delivery.comment}
+            onChange={handleOnChange}
+          />
+        </div>
         <div className="card-actions">
           <div className="card-total">
             Total: <strong>{formatSplit(total)} $</strong>
           </div>
-          <button className="card-btn" onClick={() => handleSubmit(delivery)}>
+          <button className="card-btn" onClick={() => handleSubmit(delivery)} disabled={!canOrder}>
             Commander
           </button>
         </div>

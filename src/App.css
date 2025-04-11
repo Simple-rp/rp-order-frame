@@ -39,3 +39,6 @@ footer {
 .flex {
   display: flex;
 }
+.invisible {
+  visibility: hidden;
+}

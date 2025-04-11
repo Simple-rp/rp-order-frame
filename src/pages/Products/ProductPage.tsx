@@ -36,6 +36,7 @@ const ProductPage = ({ code, client }: any) => {
   }
 
   const handleSubmit = (delivery: any) => {
+    if (cart.length === 0) return
     const msgOrder = getOrderMessage(cart, client, delivery)
     sendFromWebhook(msgOrder) // send for PDC
 
@@ -69,13 +70,12 @@ const ProductPage = ({ code, client }: any) => {
           }
         />
       ))}
-      {true && (
-        <CartCard
-          items={cart}
-          handleSubmit={(delivery: any) => handleSubmit(delivery)}
-          handleRemove={(item: any) => handleRemove(item)}
-        />
-      )}
+      <CartCard
+        items={cart}
+        handleSubmit={(delivery: any) => handleSubmit(delivery)}
+        handleRemove={(item: any) => handleRemove(item)}
+        canOrder={cart.length > 0}
+      />
     </div>
   )
 }

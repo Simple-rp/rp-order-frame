@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.1 (2025-04-08)
+- Ajout commentaire
+- Cliquer sur heure de livraison vide le champs
+- fix: Fix empty card
+- fix: prevent sending message when cart is empty
+
 ### 1.0.0 (2025-04-08)
 
 - Add delivery details: contact and time
