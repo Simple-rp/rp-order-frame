@@ -44,6 +44,7 @@ const ProductPage = ({ code, client }: any) => {
       const clientRecapMessage = getOrderMessage(cart, client, delivery, true)
       sendFromWebhook(clientRecapMessage, client.webhook) // Send for client just recap
     }
+    setCart([])
   }
 
   if (isLoading) return <Loader />
